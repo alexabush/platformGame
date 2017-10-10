@@ -1,0 +1,38 @@
+.background    { background: rgb(52, 166, 251);
+                 table-layout: fixed;
+                 border-spacing: 0;   }
+.background td { padding: 0;          }
+.lava          { background: rgb(255, 100, 100); }
+.wall          { background: white;   }
+
+.actor  { position: absolute;  }
+.coin   { background: rgb(241, 229, 89); }
+.player { background: rgb(64, 64, 64); }
+/*
+To give elements more than one class, their classnames are separated by spaces
+The actor class has absolute positioning so we can move it around the background with simple +1/-1 controls
+*/
+.game {
+  overflow: hidden;/*hides portions of game outside of viewport*/
+  max-width: 1200px;/*sets caps on how much of the game is shown*/
+  max-height: 800px;
+  position: relative;
+}
+/*
+Gives the game's wrapping element a maximum size that ensures that anything outside of the lement's box is hidden
+Also give s the outer element a relative position so that the actors inside are always positioned relative to the level's top-left
+corner.
+*/
+
+
+.lost .player {
+  background: rgb(160, 64, 64);
+}
+.won .player {
+  box-shadow: -4px -7px 8px white, 4px -7px 8px white;
+}
+
+/*
+Each game cycle we check if the player has won (collected all coins) or lost (touched lava/fallen overboard)
+If either condition applies, the respective class is added to the Player object, which causes special css styling to occur
+*/
